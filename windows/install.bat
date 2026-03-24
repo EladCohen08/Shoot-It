@@ -3,16 +3,22 @@ echo =========================================
 echo Installing Shoot-It
 echo =========================================
 
-:: Install dependencies
-pip install -r requirements.txt
+:: Ensure pip runs on the correct Python
+python -m pip install -r requirements.txt
+if errorlevel 1 (
+    echo.
+    echo [Error] Failed to install dependencies.
+    pause
+    exit /b 1
+)
 
-:: Add to User PATH
+:: Get current directory and strip trailing backslash
 set "SHOOT_DIR=%~dp0"
 if "%SHOOT_DIR:~-1%"=="\" set "SHOOT_DIR=%SHOOT_DIR:~0,-1%"
 
-setx PATH "%PATH%;%SHOOT_DIR%"
+powershell -Command "$p = [Environment]::GetEnvironmentVariable('Path', 'User'); if ($p -notlike '*%SHOOT_DIR%*') { [Environment]::SetEnvironmentVariable('Path', $p + ';%SHOOT_DIR%', 'User') }"
 
 echo.
 echo [Success] Setup complete.
-echo Restart your terminal and type 'shoot' to begin.
+echo IMPORTANT: Close this terminal and open a NEW one, then type 'shoot'
 pause
