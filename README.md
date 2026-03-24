@@ -20,13 +20,12 @@ No more manually cropping, renaming, or dragging files. Shoot-It saves numbered 
 
 ## 🚀 Getting Started
 
-Clone the repo into a clean, lowercase folder:
+Clone the repo:
 
 ```bash
-git clone [https://github.com/EladCohen08/Shoot-It.git](https://github.com/EladCohen08/Shoot-It.git) shoot_it
-cd shoot_it
+git clone [https://github.com/EladCohen08/Shoot-It.git](https://github.com/EladCohen08/Shoot-It.git)
+cd Shoot-It
 ```
-*(Note: Adding `shoot_it` to the end of the clone command forces the folder to be lowercase instead of the default uppercase `Shoot-It`. Much cleaner for navigating in the terminal!)*
 
 **Pick your OS below — skip the other one.**
 
@@ -63,8 +62,21 @@ Go to **Settings → Keyboard → View and Customize Shortcuts → Custom Shortc
 | Field | Value |
 |---|---|
 | **Name** | `Shoot-It Menu` |
-| **Command** | `python3 /path/to/your/shoot_it/linux/shoot_it.py` *(Use the exact path the installer gave you)* |
+| **Command** | `python3 /path/to/your/Shoot-It/linux/shoot_it.py` *(Use the exact path the installer gave you)* |
 | **Shortcut** | `Ctrl + Alt + S` — or any combo you prefer |
+
+### 3 — Preferences (`settings.json`)
+
+The first time you run `shoot`, a `settings.json` file is automatically generated. You can tweak the tool to your liking:
+
+```json
+{
+    "accent_color": "#2A7FFF",
+    "bg_color": "#1A1A1B",
+    "toast_duration_ms": 4000
+}
+```
+*To change your hotkey on Linux, simply edit the custom shortcut in your Ubuntu System Settings.*
 
 </details>
 
@@ -95,6 +107,20 @@ This installs the required Python packages (`Pillow`, `pynput`, `pywin32`) and a
 
 Close your current CMD or PowerShell window and open a fresh one for the PATH changes to take effect.
 
+### 3 — Preferences (`settings.json`)
+
+The first time you run `shoot`, a `settings.json` file is automatically generated. You can tweak the tool to your liking:
+
+```json
+{
+    "hotkey": "<ctrl>+<alt>+s",
+    "accent_color": "#2A7FFF",
+    "bg_color": "#1A1A1B",
+    "toast_duration_ms": 3000
+}
+```
+*To change your hotkey on Windows, edit the `hotkey` string right here in the JSON.*
+
 </details>
 
 ---
@@ -109,7 +135,7 @@ Close your current CMD or PowerShell window and open a fresh one for the PATH ch
 ```bash
 shoot
 ```
-> The terminal will lock in, print **SHOOT-IT IS READY TO CAPTURE**, and stay "live". Keep it minimized while you work.
+> Keep this terminal open and minimized while you work.
 
 **3.** Press `Ctrl + Alt + S` from anywhere. The custom menu will pop up. Choose `Area`, `Window`, or `Full`. The capture is taken, copied to your clipboard, and saved to `proof/` inside your folder:
 
@@ -124,33 +150,6 @@ your-project/
 **4.** Click the desktop notification if you want to preview the image.
 
 **5.** When you're done working, go back to the terminal and press **`Ctrl + C`**. This cleanly stops the capture tool and releases the folder.
-
----
-
-## ⚙️ Preferences (`settings.json`)
-
-The first time you run `shoot`, a `settings.json` file is automatically generated. You can tweak the tool to your liking. 
-
-**🐧 Linux Settings:**
-```json
-{
-    "accent_color": "#2A7FFF",
-    "bg_color": "#1A1A1B",
-    "toast_duration_ms": 4000
-}
-```
-* *To change your hotkey on Linux, edit the custom shortcut in your Ubuntu System Settings.*
-
-**🪟 Windows Settings:**
-```json
-{
-    "hotkey": "<ctrl>+<alt>+s",
-    "accent_color": "#2A7FFF",
-    "bg_color": "#1A1A1B",
-    "toast_duration_ms": 3000
-}
-```
-* *To change your hotkey on Windows, edit the `hotkey` string right here in the JSON.*
 
 ---
 
