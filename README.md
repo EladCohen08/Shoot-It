@@ -12,9 +12,9 @@ No more manually cropping, renaming, or dragging files. Shoot-It saves numbered 
 - Press `Ctrl + Alt + S` from anywhere to pop open the floating menu.
 - Select **Area**, **Window**, or **Full** screen capture.
 - Images automatically save and number themselves (`01.png`, `02.png`) inside a `proof/` folder.
-- A native desktop notification pops up—click it to instantly preview your shot.
+- A native desktop notification pops up — click it to instantly preview your shot.
 - Fully customizable: tweak UI colors, notification times, and hotkeys via a local `settings.json` file.
-- Press `Ctrl+C` in the terminal when you're done to cleanly disarm it.
+- Press `Ctrl+C` in the terminal when you're done to cleanly stop capture mode.
 
 ---
 
@@ -23,8 +23,8 @@ No more manually cropping, renaming, or dragging files. Shoot-It saves numbered 
 Clone the repo:
 
 ```bash
-git clone [https://github.com/EladCohen08/Shoot-It.git](https://github.com/EladCohen08/Shoot-It.git)
-cd Shoot-It
+git clone [https://github.com/EladCohen08/Shoot-It](https://github.com/EladCohen08/Shoot-It) shoot_it
+cd shoot_it
 ```
 
 **Pick your OS below — skip the other one.**
@@ -62,7 +62,7 @@ Go to **Settings → Keyboard → View and Customize Shortcuts → Custom Shortc
 | Field | Value |
 |---|---|
 | **Name** | `Shoot-It Menu` |
-| **Command** | `python3 /path/to/your/Shoot-It/linux/shoot_it.py` *(Use the exact path the installer gave you)* |
+| **Command** | `python3 /path/to/your/shoot_it/linux/shoot_it.py` |
 | **Shortcut** | `Ctrl + Alt + S` — or any combo you prefer |
 
 ### 3 — Preferences (`settings.json`)
@@ -76,7 +76,7 @@ The first time you run `shoot`, a `settings.json` file is automatically generate
     "toast_duration_ms": 4000
 }
 ```
-*To change your hotkey on Linux, simply edit the custom shortcut in your Ubuntu System Settings.*
+*To change your hotkey on Linux, edit the custom shortcut in your Ubuntu System Settings.*
 
 </details>
 
