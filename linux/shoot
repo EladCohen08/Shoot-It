@@ -1,0 +1,19 @@
+#!/bin/bash
+
+STATE_FILE="$HOME/.shoot-it-dir"
+
+# Save current directory
+echo "$PWD" > "$STATE_FILE"
+
+echo "=================================================="
+echo " SHOOT-IT IS ARMED (LINUX)"
+echo "=================================================="
+echo " Target: $PWD/proof"
+echo "=================================================="
+echo " Listening for OS Shortcut... (Press Ctrl+C to disarm)"
+
+# This 'trap' catches Ctrl+C and automatically unshoots
+trap 'echo -e "\n[Disarmed] Cleaning up..."; rm -f "$STATE_FILE"; exit 0' INT
+
+# Keep the terminal alive
+while true; do sleep 1; done
