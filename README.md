@@ -8,12 +8,13 @@ No more manually cropping, renaming, or dragging files. Shoot-It saves numbered 
 
 ## ✨ What It Does
 
-- Press **`Ctrl + Alt + S`** from anywhere — browser, IDE, terminal, doesn't matter.
-- A minimalist, floating UI pops up asking if you want to capture an **Area**, a specific **Window**, or the **Full** screen.
-- Screenshots land directly in a `proof/` folder inside your current project directory, strictly auto-numbered.
-- **Clickable native notifications:** Click the popup to instantly open and view the captured image.
-- **Customizable:** A local `settings.json` file lets you change UI colors, notification duration, and hotkeys.
-- **One-word activation:** Type `shoot` to enable capture mode. Press `Ctrl+C` in the terminal to stop. 
+- Type `shoot` in any folder's terminal to lock it in as your capture target.
+- Press `Ctrl + Alt + S` from anywhere to pop open the floating menu.
+- Select **Area**, **Window**, or **Full** screen capture.
+- Images automatically save and number themselves (`01.png`, `02.png`) inside a `proof/` folder.
+- A native desktop notification pops up—click it to instantly preview your shot.
+- Fully customizable: tweak UI colors, notification times, and hotkeys via a local `settings.json` file.
+- Press `Ctrl+C` in the terminal when you're done to cleanly disarm it.
 
 ---
 
@@ -25,6 +26,7 @@ Clone the repo into a clean, lowercase folder:
 git clone [https://github.com/EladCohen08/Shoot-It.git](https://github.com/EladCohen08/Shoot-It.git) shoot_it
 cd shoot_it
 ```
+*(Note: Adding `shoot_it` to the end of the clone command forces the folder to be lowercase instead of the default uppercase `Shoot-It`. Much cleaner for navigating in the terminal!)*
 
 **Pick your OS below — skip the other one.**
 
@@ -127,24 +129,34 @@ your-project/
 
 ## ⚙️ Preferences (`settings.json`)
 
-The first time you run `shoot`, a `settings.json` file is automatically generated in your `Shoot-It` folder. You can open it to tweak the tool to your liking:
+The first time you run `shoot`, a `settings.json` file is automatically generated. You can tweak the tool to your liking. 
 
+**🐧 Linux Settings:**
 ```json
 {
-    "hotkey": "<ctrl>+<alt>+s", 
     "accent_color": "#2A7FFF",
     "bg_color": "#1A1A1B",
     "toast_duration_ms": 4000
 }
 ```
-* **Linux Users:** The `hotkey` field is ignored (since GNOME handles the shortcut), but you can fully customize the `accent_color` and `bg_color` of the popup menu.
-* **Windows Users:** Edit the `hotkey` string here to change your shortcut without touching the code.
+* *To change your hotkey on Linux, edit the custom shortcut in your Ubuntu System Settings.*
+
+**🪟 Windows Settings:**
+```json
+{
+    "hotkey": "<ctrl>+<alt>+s",
+    "accent_color": "#2A7FFF",
+    "bg_color": "#1A1A1B",
+    "toast_duration_ms": 3000
+}
+```
+* *To change your hotkey on Windows, edit the `hotkey` string right here in the JSON.*
 
 ---
 
 ## 👋 About
 
-Hi! I’m Elad Cohen, a second-year CS student at Bar-Ilan University. I built Shoot-It because submitting screenshots for every Advanced System Programming exercise was a headache — manually cropping, renaming, and organizing just takes too long.
+Hi! I’m Elad Cohen, a second-year CS student at Bar-Ilan University. I built Shoot-It because submitting screenshots for Advanced System Programming exercises was a headache — manually cropping, renaming, and organizing just takes too long.
 
 Shoot-It automates it: pick a folder, press a hotkey, select your area, and your screenshots are saved and numbered automatically.
 
