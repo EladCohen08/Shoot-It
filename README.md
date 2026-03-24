@@ -8,13 +8,13 @@ No more manually cropping, renaming, or dragging files. Shoot-It saves numbered 
 
 ## ✨ What It Does
 
-- Type `shoot` in any folder's terminal to lock it in as your capture target.
+- Type `shoot` in any folder's terminal to set your capture target.
 - Press `Ctrl + Alt + S` from anywhere to pop open the floating menu.
 - Select **Area**, **Window**, or **Full** screen capture.
 - Images automatically save and number themselves (`01.png`, `02.png`) inside a `proof/` folder.
-- A native desktop notification pops up — click it to instantly preview your shot.
-- Fully customizable: tweak UI colors, notification times, and hotkeys via a local `settings.json` file.
-- Press `Ctrl+C` in the terminal when you're done to cleanly stop capture mode.
+- A native desktop notification pops up—click it to instantly preview your shot.
+- Fully customizable: tweak UI colors, notification times, and hotkeys via `settings.json`.
+- Press `Ctrl+C` in the terminal when you're done to stop capture mode.
 
 ---
 
@@ -38,13 +38,7 @@ cd shoot_it
 
 <br>
 
-> **Heads up:** Built for **GNOME-based** distros (Ubuntu, Pop!\_OS, Fedora) running **Wayland/X11**. It relies on native tools like `gnome-screenshot` and `xclip` for a flawless, native feel.
-
-<br>
-
 ### 1 — Run the installer
-
-From the root of the repo, run the installer to grab the system dependencies and setup your bash alias:
 
 ```bash
 bash linux/install.sh
@@ -53,9 +47,7 @@ source ~/.bashrc
 
 The installer will print the **exact command** you need for the next step.
 
-### 2 — Bind the global shortcut
-
-Because modern Linux (Wayland) blocks background keyloggers for security, you tie the UI directly to your OS settings. 
+### 2 — Create the shortcut
 
 Go to **Settings → Keyboard → View and Customize Shortcuts → Custom Shortcuts** and click `+`:
 
@@ -67,7 +59,7 @@ Go to **Settings → Keyboard → View and Customize Shortcuts → Custom Shortc
 
 ### 3 — Preferences (`settings.json`)
 
-The first time you run `shoot`, a `settings.json` file is automatically generated. You can tweak the tool to your liking:
+The first time you run `shoot`, a `settings.json` file is automatically generated.
 
 ```json
 {
@@ -77,6 +69,10 @@ The first time you run `shoot`, a `settings.json` file is automatically generate
 }
 ```
 *To change your hotkey on Linux, edit the custom shortcut in your Ubuntu System Settings.*
+
+<br>
+
+**👉 Setup finished! Move to [Daily Usage](#-daily-usage).**
 
 </details>
 
@@ -89,10 +85,6 @@ The first time you run `shoot`, a `settings.json` file is automatically generate
 
 <br>
 
-> **Prerequisite:** [Python 3.x](https://www.python.org/downloads/) must be installed.
-
-<br>
-
 ### 1 — Run the installer
 
 Open a terminal inside the `windows/` folder and run:
@@ -101,15 +93,13 @@ Open a terminal inside the `windows/` folder and run:
 install.bat
 ```
 
-This installs the required Python packages (`Pillow`, `pynput`, `pywin32`) and automatically adds Shoot-It to your System PATH so the `shoot` command works globally.
-
 ### 2 — Restart your terminal
 
-Close your current CMD or PowerShell window and open a fresh one for the PATH changes to take effect.
+Close your current terminal window and open a fresh one for the changes to take effect.
 
 ### 3 — Preferences (`settings.json`)
 
-The first time you run `shoot`, a `settings.json` file is automatically generated. You can tweak the tool to your liking:
+The first time you run `shoot`, a `settings.json` file is automatically generated.
 
 ```json
 {
@@ -121,23 +111,25 @@ The first time you run `shoot`, a `settings.json` file is automatically generate
 ```
 *To change your hotkey on Windows, edit the `hotkey` string right here in the JSON.*
 
+<br>
+
+**👉 Setup finished! Move to [Daily Usage](#-daily-usage).**
+
 </details>
 
 ---
 
 ## 📖 Daily Usage
 
-**The core workflow is identical on both platforms.**
-
-**1.** Open a terminal inside your project or assignment folder.
+**1.** Open a terminal inside your project folder.
 
 **2.** Enable Capture Mode:
 ```bash
 shoot
 ```
-> Keep this terminal open and minimized while you work.
+*Keep this terminal open while you work.*
 
-**3.** Press `Ctrl + Alt + S` from anywhere. The custom menu will pop up. Choose `Area`, `Window`, or `Full`. The capture is taken, copied to your clipboard, and saved to `proof/` inside your folder:
+**3.** Press `Ctrl + Alt + S` from anywhere. Choose `Area`, `Window`, or `Full`. The capture is saved to `proof/` and copied to your clipboard:
 
 ```text
 your-project/
@@ -147,17 +139,15 @@ your-project/
     └── 03.png
 ```
 
-**4.** Click the desktop notification if you want to preview the image.
+**4.** Click the desktop notification to preview the image.
 
-**5.** When you're done working, go back to the terminal and press **`Ctrl + C`**. This cleanly stops the capture tool and releases the folder.
+**5.** When done, go back to the terminal and press **`Ctrl + C`** to stop.
 
 ---
 
 ## 👋 About
 
 Hi! I’m Elad Cohen, a second-year CS student at Bar-Ilan University. I built Shoot-It because submitting screenshots for Advanced System Programming exercises was a headache — manually cropping, renaming, and organizing just takes too long.
-
-Shoot-It automates it: pick a folder, press a hotkey, select your area, and your screenshots are saved and numbered automatically.
 
 📬 Contact: cohenelad08@gmail.com
 ---
