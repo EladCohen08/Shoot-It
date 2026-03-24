@@ -122,7 +122,7 @@ your-project/
 
 ## 👋 About
 
-Hi! I’m Elad Cohen, a second-year CS student at Bar-Ilan University. I built Shoot-It because submitting screenshots for Advanced System Programming exercises was a headache — manually cropping, renaming, and organizing just takes too long.
+Hi! I’m Elad Cohen, a second-year CS student at Bar-Ilan University. I built Shoot-It because submitting screenshots for Advanced System Programming exercises was a headache — manually cropping, renaming, and organizing just takes too long. Special thanks a lot to @NRG-Wardog for helping me build the windows version.
 
 📬 Contact: cohenelad08@gmail.com
 ---
