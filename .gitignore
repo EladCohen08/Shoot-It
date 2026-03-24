@@ -1,9 +1,3 @@
-# Python
-__pycache__/
-*.pyc
-
-# OS / Local State
-.DS_Store
-Thumbs.db
-.shoot_it_dir
-.autoshot_dir
+.shoot-it-dir 
+__pycache__/ 
+*.pyc 
