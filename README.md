@@ -12,7 +12,7 @@ No more manually cropping, renaming, or dragging files. Shoot-It saves numbered 
 - Press `Ctrl + Alt + S` from anywhere to pop open the floating menu.
 - Select **Area**, **Window**, or **Full** screen capture.
 - Images automatically save and number themselves (`01.png`, `02.png`) inside a `proof/` folder.
-- A native desktop notification pops up—click it to instantly preview your shot.
+- A native desktop notification pops up — click it to instantly preview your shot.
 - Fully customizable: tweak UI colors, notification times, and hotkeys via `settings.json`.
 - Press `Ctrl+C` in the terminal when you're done to stop capture mode.
 
@@ -23,7 +23,7 @@ No more manually cropping, renaming, or dragging files. Shoot-It saves numbered 
 Clone the repo:
 
 ```bash
-git clone https://github.com/EladCohen08/Shoot-It shoot_it
+git clone [https://github.com/EladCohen08/Shoot-It](https://github.com/EladCohen08/Shoot-It) shoot_it
 cd shoot_it
 ```
 
@@ -45,8 +45,6 @@ bash linux/install.sh
 source ~/.bashrc
 ```
 
-The installer will print the **exact command** you need for the next step.
-
 ### 2 — Create the shortcut
 
 Go to **Settings → Keyboard → View and Customize Shortcuts → Custom Shortcuts** and click `+`:
@@ -56,19 +54,6 @@ Go to **Settings → Keyboard → View and Customize Shortcuts → Custom Shortc
 | **Name** | `Shoot-It Menu` |
 | **Command** | `python3 /path/to/your/shoot_it/linux/shoot_it.py` |
 | **Shortcut** | `Ctrl + Alt + S` — or any combo you prefer |
-
-### 3 — Preferences (`settings.json`)
-
-The first time you run `shoot`, a `settings.json` file is automatically generated.
-
-```json
-{
-    "accent_color": "#2A7FFF",
-    "bg_color": "#1A1A1B",
-    "toast_duration_ms": 4000
-}
-```
-*To change your hotkey on Linux, edit the custom shortcut in your Ubuntu System Settings.*
 
 <br>
 
@@ -85,6 +70,10 @@ The first time you run `shoot`, a `settings.json` file is automatically generate
 
 <br>
 
+> **Prerequisite:** [Python 3.x](https://www.python.org/downloads/) must be installed. (Make sure to check **"Add Python to PATH"** during installation).
+
+<br>
+
 ### 1 — Run the installer
 
 Open a terminal inside the `windows/` folder and run:
@@ -96,20 +85,6 @@ install.bat
 ### 2 — Restart your terminal
 
 Close your current terminal window and open a fresh one for the changes to take effect.
-
-### 3 — Preferences (`settings.json`)
-
-The first time you run `shoot`, a `settings.json` file is automatically generated.
-
-```json
-{
-    "hotkey": "<ctrl>+<alt>+s",
-    "accent_color": "#2A7FFF",
-    "bg_color": "#1A1A1B",
-    "toast_duration_ms": 3000
-}
-```
-*To change your hotkey on Windows, edit the `hotkey` string right here in the JSON.*
 
 <br>
 
