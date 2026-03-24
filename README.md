@@ -23,7 +23,7 @@ No more manually cropping, renaming, or dragging files. Shoot-It saves numbered 
 Clone the repo:
 
 ```bash
-git clone [https://github.com/EladCohen08/Shoot-It](https://github.com/EladCohen08/Shoot-It) shoot_it
+git clone https://github.com/EladCohen08/Shoot-It shoot_it
 cd shoot_it
 ```
 
