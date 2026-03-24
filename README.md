@@ -143,12 +143,11 @@ unshoot
 
 ## 👋 About
 
-Built by **Elad Cohen**, a second-year CS student at Bar-Ilan University.
+Hi! I’m Elad Cohen, a second-year CS student at Bar-Ilan University. I built Shoot-It because submitting screenshots for every Advanced System Programming exercises was a headache — manually cropping, renaming, and organizing just takes too long.
 
-This started as a personal fix for a very specific pain: every exercise in Advanced System Programming requires submitting screenshot proof of your work. After manually cropping and renaming the hundredth image, I just built the thing that should have existed already.
+Shoot-It automates it: pick a folder, press a hotkey, and your screenshots are saved and numbered automatically.
 
-If it saves you the same headache, great.
-
+📬 Contact: cohenelad08@gmail.com
 ---
 
 <div align="center">
