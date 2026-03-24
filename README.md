@@ -1,6 +1,6 @@
 # 📸 Shoot-It
 
-> Automated, sequential screenshot capture for developers. Set a folder, press a hotkey, done.
+> Automate screenshots for your projects — press a hotkey, and images are auto-numbered in a proof/ folder.
 
 No more manually cropping, renaming, or dragging files. Shoot-It saves numbered screenshots (`01.png`, `02.png`, ...) directly into a `proof/` folder inside whatever directory you're working in — triggered instantly from anywhere on your screen.
 
