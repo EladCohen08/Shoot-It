@@ -4,8 +4,6 @@
 
 No more manually cropping, renaming, or dragging files. Shoot-It saves numbered screenshots (`01.png`, `02.png`, ...) directly into a `proof/` folder inside whatever directory you're working in — triggered instantly from anywhere on your screen.
 
-Built for students who need to do annoying ducomenting tasks.
-
 ---
 
 ## ✨ What It Does
@@ -38,7 +36,7 @@ cd Shoot-It
 <br>
 
 > **Heads up:** Built for **GNOME-based** distros (Ubuntu, Pop!\_OS, Fedora) on **Bash**.
-> If you're on KDE/XFCE or using Zsh — swap `gnome-screenshot` in `autoshot.sh` for your distro's tool, and add the aliases to `~/.zshrc` manually instead.
+> If you're on KDE/XFCE or using Zsh — swap `gnome-screenshot` in `autoshot.sh` for your distro's screenshot tool, and add the aliases to `~/.zshrc` manually instead.
 
 <br>
 
@@ -67,9 +65,9 @@ Go to **Settings → Keyboard → View and Customize Shortcuts → Custom Shortc
 |---|---|
 | **Name** | `Shoot-It` |
 | **Command** | The path printed by the installer (e.g. `/home/yourname/projects/Shoot-It/linux/autoshot.sh`) |
-| **Shortcut** | `Ctrl + Alt + S` — or whatever you prefer |
+| **Shortcut** | `Ctrl + Alt + S` — or any combo you prefer |
 
-> 💡 **Don't want `Ctrl + Alt + S`?** Just pick any other combo in that same Settings screen — it has nothing to do with the code, it's purely a GNOME setting.
+> 💡 **Want a different shortcut?** Just pick any other combo in that same Settings screen — it's purely a GNOME setting, nothing to touch in the code.
 
 </details>
 
@@ -102,13 +100,11 @@ Close your current CMD or PowerShell window and open a fresh one for the PATH ch
 
 ### 3 — Change the hotkey (optional)
 
-By default the hotkey is `Ctrl + Alt + S`. To change it, open `windows/shoot_it.py` and edit the last few lines:
+The default hotkey is `Ctrl + Alt + S`. To change it, open `windows/shoot_it.py` and edit the very last line:
 
 ```python
-# Change the keys here to whatever combo you want
 # Examples: '<ctrl>+<shift>+p'  or  '<alt>+x'
 with keyboard.GlobalHotKeys({'<ctrl>+<alt>+s': take_shot}) as h:
-    h.join()
 ```
 
 </details>
@@ -142,6 +138,16 @@ your-project/
 unshoot
 ```
 > On Windows, closing the terminal window also stops the listener.
+
+---
+
+## 👋 About
+
+Built by **Elad Cohen**, a second-year CS student at Bar-Ilan University.
+
+This started as a personal fix for a very specific pain: every exercise in Advanced System Programming requires submitting screenshot proof of your work. After manually cropping and renaming the hundredth image, I just built the thing that should have existed already.
+
+If it saves you the same headache, great.
 
 ---
 

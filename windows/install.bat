@@ -8,7 +8,7 @@ pip install -r requirements.txt
 echo.
 echo 2. Adding Shoot-It to your System PATH...
 set "SHOOT_DIR=%CD%"
-powershell -Command "[Environment]::SetEnvironmentVariable('Path', [Environment]::GetEnvironmentVariable('Path', 'User') + ';%SHOOT_DIR%', 'User')"
+powershell -Command "$p = [Environment]::GetEnvironmentVariable('Path', 'User'); if ($p -notmatch [regex]::Escape('%SHOOT_DIR%')) { [Environment]::SetEnvironmentVariable('Path', $p + ';%SHOOT_DIR%', 'User'); Write-Host 'Added to PATH.' } else { Write-Host 'Already in PATH.' }"
 echo.
 echo ✅ Setup Complete!
 echo ⚠️ IMPORTANT: Close this terminal and open a NEW one for the changes to take effect.
