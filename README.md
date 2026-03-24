@@ -19,14 +19,14 @@ Built for students who need to do annoying ducomenting tasks.
 
 ## 🚀 Getting Started
 
-Clone the repo and move into it:
+Clone the repo:
 
 ```bash
 git clone https://github.com/EladCohen08/Shoot-It.git
 cd Shoot-It
 ```
 
-**Pick your OS below and follow only those steps — skip the other one.**
+**Pick your OS below — skip the other one.**
 
 ---
 
@@ -37,9 +37,8 @@ cd Shoot-It
 
 <br>
 
-> **Compatibility:** Built for **GNOME-based** distros (Ubuntu, Pop!\_OS, Fedora) running **Bash**.
-> If you're on KDE, XFCE, or using Zsh — the script will need minor manual tweaks (swap `gnome-screenshot` in `autoshot.sh` for your distro's screenshot tool, and add the aliases to `~/.zshrc` instead).
-> On Ubuntu, you're good to go as-is.
+> **Heads up:** Built for **GNOME-based** distros (Ubuntu, Pop!\_OS, Fedora) on **Bash**.
+> If you're on KDE/XFCE or using Zsh — swap `gnome-screenshot` in `autoshot.sh` for your distro's tool, and add the aliases to `~/.zshrc` manually instead.
 
 <br>
 
@@ -58,19 +57,19 @@ bash linux/install.sh
 source ~/.bashrc
 ```
 
-This sets up the `shoot` and `unshoot` aliases globally in your terminal.
+The installer will print the **exact path** to `autoshot.sh` — copy it, you'll need it in the next step.
 
 ### 3 — Bind the global shortcut
 
-Open **Settings → Keyboard → View and Customize Shortcuts → Custom Shortcuts** and click `+`:
+Go to **Settings → Keyboard → View and Customize Shortcuts → Custom Shortcuts** and click `+`:
 
 | Field | Value |
 |---|---|
 | **Name** | `Shoot-It` |
 | **Command** | The path printed by the installer (e.g. `/home/yourname/projects/Shoot-It/linux/autoshot.sh`) |
-| **Shortcut** | `Ctrl + Alt + S` |
+| **Shortcut** | `Ctrl + Alt + S` — or whatever you prefer |
 
-Done. The shortcut is now active system-wide.
+> 💡 **Don't want `Ctrl + Alt + S`?** Just pick any other combo in that same Settings screen — it has nothing to do with the code, it's purely a GNOME setting.
 
 </details>
 
@@ -83,23 +82,34 @@ Done. The shortcut is now active system-wide.
 
 <br>
 
-> **Prerequisite:** Make sure **Python 3.x** is installed — [download it here](https://www.python.org/downloads/) if needed.
+> **Prerequisite:** [Python 3.x](https://www.python.org/downloads/) must be installed.
 
 <br>
 
 ### 1 — Run the installer
 
-Navigate into the `windows/` folder and double-click `install.bat`.
+Open a terminal inside the `windows/` folder and run:
 
-This will:
-- Install the required Python packages (`pyautogui`, `pynput`, `win10toast`)
-- Automatically add Shoot-It to your System PATH so `shoot` and `unshoot` work from any terminal, anywhere
+```bat
+install.bat
+```
+
+This installs the required Python packages and automatically adds Shoot-It to your System PATH so `shoot` and `unshoot` work from any terminal, anywhere.
 
 ### 2 — Restart your terminal
 
 Close your current CMD or PowerShell window and open a fresh one for the PATH changes to take effect.
 
-> 💡 **Want a different hotkey?** Open `windows/shoot_it.py` and edit the `HOTKEY` variable at the bottom of the file.
+### 3 — Change the hotkey (optional)
+
+By default the hotkey is `Ctrl + Alt + S`. To change it, open `windows/shoot_it.py` and edit the last few lines:
+
+```python
+# Change the keys here to whatever combo you want
+# Examples: '<ctrl>+<shift>+p'  or  '<alt>+x'
+with keyboard.GlobalHotKeys({'<ctrl>+<alt>+s': take_shot}) as h:
+    h.join()
+```
 
 </details>
 
@@ -117,7 +127,7 @@ shoot
 ```
 > On Windows, this also starts the background listener — keep the terminal open and minimized while you work.
 
-**3.** Press `Ctrl + Alt + S` whenever you need a screenshot. Each capture is saved to `proof/` inside your folder, auto-numbered:
+**3.** Press `Ctrl + Alt + S` from anywhere. Each capture saves to `proof/` inside your folder, auto-numbered:
 
 ```
 your-project/
@@ -127,7 +137,7 @@ your-project/
     └── 03.png
 ```
 
-**4.** When you're done, disarm:
+**4.** When you're done:
 ```bash
 unshoot
 ```

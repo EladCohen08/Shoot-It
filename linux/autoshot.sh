@@ -2,9 +2,9 @@
 
 STATE_FILE="$HOME/.shoot_it_dir"
 
-# Safety Check 1: Did they run 'setshoot'?
+# Safety Check 1: Did they run 'shoot'?
 if [ ! -f "$STATE_FILE" ]; then
-    notify-send "🚫 Shoot-It Not Set" "Run 'setshoot' in your terminal first!" --icon=dialog-error
+    notify-send "🚫 Shoot-It Not Set" "Run 'shoot' in your terminal first!" --icon=dialog-error
     exit 1
 fi
 
@@ -13,7 +13,7 @@ TARGET_DIR="$PROJECT_DIR/proof"
 
 # Safety Check 2: Does the project folder still exist?
 if [ ! -d "$PROJECT_DIR" ]; then
-    notify-send "⚠️ Folder Missing" "The project folder was moved or deleted. Run 'setshoot' again." --icon=dialog-error
+    notify-send "⚠️ Folder Missing" "The project folder was moved or deleted. Run 'shoot' again." --icon=dialog-error
     rm -f "$STATE_FILE"
     exit 1
 fi
