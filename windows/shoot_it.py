@@ -14,7 +14,7 @@ def take_shot():
         toaster.show_toast("🚫 Shoot-It Not Set", "Run 'shoot' in your terminal first!", duration=3)
         return
 
-    with open(STATE_FILE, "r") as f:
+    with open(STATE_FILE, "r", encoding="utf-8") as f:
         project_path = f.read().strip()
 
     # 3. Safety Check 2: Does the folder still exist?
