@@ -1,27 +1,27 @@
 #!/bin/bash
 
-# 1. Path Setup
-STATE_FILE="$HOME/.autoshot_dir"
+STATE_FILE="$HOME/.shoot_it_dir"
 
-# CHECK: If the file doesn't exist, we notify the user and STOP
+# Safety Check 1: Did they run 'setshoot'?
 if [ ! -f "$STATE_FILE" ]; then
-    notify-send "🚫 Autoshot Not Set" "Run 'setshot' in your project folder first!" --icon=dialog-error
+    notify-send "🚫 Shoot-It Not Set" "Run 'setshoot' in your terminal first!" --icon=dialog-error
     exit 1
 fi
 
-CURRENT_DIR=$(cat "$STATE_FILE")
+PROJECT_DIR=$(cat "$STATE_FILE")
+TARGET_DIR="$PROJECT_DIR/proof"
 
-# SAFETY CHECK: Does the project folder still exist on disk?
-if [ ! -d "$CURRENT_DIR" ]; then
-    notify-send "⚠️ Folder Missing" "The path was moved or deleted. Run 'setshot' again."
-    rm -f "$STATE_FILE" # Clean up the dead link
+# Safety Check 2: Does the project folder still exist?
+if [ ! -d "$PROJECT_DIR" ]; then
+    notify-send "⚠️ Folder Missing" "The project folder was moved or deleted. Run 'setshoot' again." --icon=dialog-error
+    rm -f "$STATE_FILE"
     exit 1
 fi
 
-TARGET_DIR="$CURRENT_DIR/proof"
+# Create proof directory if it doesn't exist
 mkdir -p "$TARGET_DIR"
 
-# 2. Sequencing (01, 02...)
+# Sequential Naming (01.png, 02.png...)
 COUNT=1
 for file in "$TARGET_DIR"/[0-9][0-9].png; do
     if [ -f "$file" ]; then
@@ -33,22 +33,18 @@ done
 FILENAME=$(printf "%02d.png" $COUNT)
 FILEPATH="$TARGET_DIR/$FILENAME"
 
-# 3. Take Shot
-sleep 0.5
+# Take the screenshot (0.2s delay prevents shortcut keys from messing up the shot)
+sleep 0.2
 gnome-screenshot -w -f "$FILEPATH"
 
-# 4. Clickable Notification Logic
-# Note: Some Ubuntu versions require the 'default' action to be explicitly caught
-# We use a longer timeout (5s) to give you time to click
+# Send clickable notification
 ACTION=$(notify-send "📸 Captured $FILENAME" \
     "Click here to preview" \
     --icon=camera-photo \
     --action="default=Open" \
-    --expire-time=5000)
+    --expire-time=4000)
 
-# 5. Handle the click
-case "$ACTION" in
-    "default")
-        eog "$FILEPATH" >/dev/null 2>&1 &
-        ;;
-esac
+# Open image if clicked
+if [ "$ACTION" == "default" ]; then
+    xdg-open "$FILEPATH" >/dev/null 2>&1 &
+fi
