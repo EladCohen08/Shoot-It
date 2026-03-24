@@ -2,13 +2,14 @@
 
 > Automate screenshots for your projects — press a hotkey, and images are auto-numbered in a proof/ folder.
 
-No more manually cropping, renaming, or dragging files. Shoot-It saves numbered screenshots (`01.png`, `02.png`, ...) directly into a `proof/` folder inside whatever directory you're working in — triggered instantly from anywhere on your screen.
+No more manually cropping, renaming, or dragging files. Shoot-It saves numbered screenshots (`01.png`, `02.png`, ...) directly into a `proof/` folder inside whatever directory you're working in. On Windows, the hotkey opens a built-in capture picker so you can choose exactly what gets captured before it is saved.
 
 ---
 
 ## ✨ What It Does
 
 - Press **`Ctrl + Alt + S`** from anywhere — browser, IDE, doesn't matter
+- On Windows, the hotkey opens a built-in picker for area, window, or fullscreen capture
 - Screenshots land in a `proof/` folder inside your current project directory, auto-numbered
 - Native OS notifications confirm every capture
 - One-word commands: `shoot` to arm it, `unshoot` to clear it
@@ -100,11 +101,11 @@ Close your current CMD or PowerShell window and open a fresh one for the PATH ch
 
 ### 3 — Change the hotkey (optional)
 
-The default hotkey is `Ctrl + Alt + S`. To change it, open `windows/shoot_it.py` and edit the very last line:
+The default hotkey is `Ctrl + Alt + S`. To change it, open `windows/shoot_it.py` and edit the hotkey inside `_start_hotkey_listener()`:
 
 ```python
 # Examples: '<ctrl>+<shift>+p'  or  '<alt>+x'
-with keyboard.GlobalHotKeys({'<ctrl>+<alt>+s': take_shot}) as h:
+hotkey = keyboard.HotKey(keyboard.HotKey.parse("<ctrl>+<alt>+s"), self._request_picker)
 ```
 
 </details>
@@ -113,7 +114,7 @@ with keyboard.GlobalHotKeys({'<ctrl>+<alt>+s': take_shot}) as h:
 
 ## 📖 Daily Usage
 
-**The workflow is identical on both platforms.**
+**The core workflow is the same on both platforms.**
 
 **1.** Open a terminal inside your project or assignment folder
 
@@ -123,7 +124,7 @@ shoot
 ```
 > On Windows, this also starts the background listener — keep the terminal open and minimized while you work.
 
-**3.** Press `Ctrl + Alt + S` from anywhere. Each capture saves to `proof/` inside your folder, auto-numbered:
+**3.** Press `Ctrl + Alt + S` from anywhere. On Windows, choose `Area`, `Window`, or `Fullscreen` from the picker, then complete the capture. Each capture saves to `proof/` inside your folder, auto-numbered:
 
 ```
 your-project/
