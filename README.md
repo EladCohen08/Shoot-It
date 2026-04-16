@@ -38,7 +38,7 @@ cd shoot_it
 
 <br>
 
-### 1 — Run the installer
+### 1 — Run the installer(May need to chmod +x)
 
 ```bash
 bash linux/install.sh
